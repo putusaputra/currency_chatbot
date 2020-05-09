@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use BotMan\BotMan\BotMan;
 use Illuminate\Http\Request;
 use App\Conversations\ExampleConversation;
+use App\Conversations\OnboardingConversation;
+use App\Conversations\CurrencyConversation;
 
 class BotManController extends Controller
 {
@@ -33,5 +35,13 @@ class BotManController extends Controller
     public function startConversation(BotMan $bot)
     {
         $bot->startConversation(new ExampleConversation());
+    }
+
+    public function helloAboard(BotMan $bot) {
+        $bot->startConversation(new OnboardingConversation());
+    }
+
+    public function checkCurrency(BotMan $bot) {
+        $bot->startConversation(new CurrencyConversation());
     }
 }
